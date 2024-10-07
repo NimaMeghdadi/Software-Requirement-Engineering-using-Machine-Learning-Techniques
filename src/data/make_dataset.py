@@ -1,30 +1,23 @@
-# -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from src.config.config import PROJECT_DIR
+class Dataset:
+    
+    def load_data(self, csv_file: str):
+        # Load the dataset from CSV file
+        data = pd.read_csv(csv_file)
+        
+        # Split the data into training and test sets
+        train_data, test_data = train_test_split(data, test_size=0.2, random_state=42)
+        
+        return train_data, test_data
+
+    def save_data(self, train_data, test_data, train_file= PROJECT_DIR + '/data/processed/train.csv', test_file=PROJECT_DIR + '/data/processed/test.csv'):
+        # Save the split datasets
+        train_data.to_csv(train_file, index=False)
+        test_data.to_csv(test_file, index=False)
+        
+        print(f"Training data saved to {train_file}")
+        print(f"Test data saved to {test_file}")
 
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
-    """ Runs data processing scripts to turn raw data from (../raw) into
-        cleaned data ready to be analyzed (saved in ../processed).
-    """
-    logger = logging.getLogger(__name__)
-    logger.info('making final data set from raw data')
-
-
-if __name__ == '__main__':
-    log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(level=logging.INFO, format=log_fmt)
-
-    # not used in this stub but often useful for finding various files
-    project_dir = Path(__file__).resolve().parents[2]
-
-    # find .env automagically by walking up directories until it's found, then
-    # load up the .env entries as environment variables
-    load_dotenv(find_dotenv())
-
-    main()
