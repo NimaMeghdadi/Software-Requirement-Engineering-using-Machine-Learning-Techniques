@@ -34,21 +34,21 @@ data example:
 ```
 
 
-| Categoría | Amount | percentage | Size |
-| - | -: | -: | -: |
-| Funcional (F) | 255 | 40.80% | 20 |
-| Avalilability (A) | 21 | 3.36% | 19 |
-| Faul Tolerance (FT) | 10 | 1.60% | 19 |
-| Legal (L) | 13 | 2.08% | 18 |
-| Look & Feel (LF) | 38 | 6.08% | 20 |
-| Mantainabilty (MN) | 17 | 2.72% | 28 |
-| Operational (O) | 62 | 9.92% | 20 |
-| Performance (PE) | 54 | 8.64% | 22 |
-| Portability (PO) | 1 | 0.16% | 14 |
-| Scalability (SC) | 21 | 3.36% | 18 |
-| Security (SE) | 66 | 10.56% | 20 |
-| Usability (US) | 67 | 10.72% | 22 |
-| **Total** | **625** | **100%** |  |
+| Categoría | Count |
+| - | -: |
+| Funcional (F) | 444 |
+| Availability (A) | 31 |
+| Faul Tolerance (FT) | 18 |
+| Legal (L) | 15 | 
+| Look & Feel (LF) | 49 | 
+| Mantainabilty (MN) | 24 | 
+| Operational (O) | 77 | 
+| Performance (PE) | 67 | 
+| Portability (PO) | 12 | 
+| Scalability (SC) | 22 |
+| Security (SE) | 125 |
+| Usability (US) | 85 |
+| **Total** | **969** |
 ---
 
 ## Model Architectures
